@@ -6,8 +6,8 @@
   "main": "lib/index.js",
   "author": "Raymond Hammarling",
   "bin": {
-    "create-git-repo": "./bin/create-git-repo",
-    "cgr": "./bin/create-git-repo"
+    "create-git-repo": "./bin/create-git-repo.js",
+    "cgr": "./bin/create-git-repo.js"
   },
   "scripts": {
     "lint": "eslint src/ test/",
@@ -27,5 +27,11 @@
     "eslint-config-kellyirc": "^2.0.0",
     "mocha": "^2.2.5",
     "onchange": "^2.0.0"
+  },
+  "dependencies": {
+    "babel-core": "^5.8.23",
+    "bluebird": "^2.9.34",
+    "gh-got": "^1.1.0",
+    "yargs": "^3.21.0"
   }
 }
