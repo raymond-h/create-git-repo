@@ -6,8 +6,8 @@ import Promise from 'bluebird';
 Promise.promisifyAll(child_process);
 
 function exec(cmd) {
-    console.log();
-    return child_process.exec(cmd);
+    console.log('>>', cmd);
+    return child_process.execAsync(cmd);
 }
 
 export default async function setup(info, createRepo, opts) {
