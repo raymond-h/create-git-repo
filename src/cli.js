@@ -35,7 +35,7 @@ async function main() {
 
     console.log(`Creating repository ${name} (${description})`);
 
-    const createRepo = githubRepo({ token: argv.token });
+    const createRepo = githubRepo(argv);
 
     const data = await setup({ name, description }, createRepo);
 
