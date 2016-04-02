@@ -8,6 +8,7 @@ Promise.promisifyAll(fs);
 
 import setup from './index';
 import githubRepo from './github';
+import { maybeSavePackageJson } from './save-repo-handlers';
 
 const argv = yargs
     .alias('t', 'token')
@@ -27,6 +28,8 @@ async function main() {
 
     if(info.name == null || info.name === '') {
         info = await getPackageJson();
+
+        // TODO: if "info" contains a "repository", guess where to create repo to match it
     }
 
     const { name, description } = info;
@@ -38,6 +41,8 @@ async function main() {
     const data = await setup({ name, description }, createRepo);
 
     console.log(`Created repository at "${data.url}".`);
+
+    await maybeSavePackageJson(data);
 }
 
 Promise.resolve(main()).done();
