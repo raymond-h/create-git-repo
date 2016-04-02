@@ -2,6 +2,7 @@ import fs from 'fs';
 
 import yargs from 'yargs';
 import Promise from 'bluebird';
+import rc from 'rc';
 
 Promise.longStackTraces();
 Promise.promisifyAll(fs);
@@ -24,6 +25,8 @@ async function getPackageJson() {
 }
 
 async function main() {
+    const conf = rc('cgr', {}, argv);
+
     let info = argv;
 
     if(info.name == null || info.name === '') {
@@ -36,7 +39,7 @@ async function main() {
 
     console.log(`Creating repository ${name} (${description})`);
 
-    const createRepo = githubRepo(argv);
+    const createRepo = githubRepo(conf);
 
     const data = await setup({ name, description }, createRepo);
 
