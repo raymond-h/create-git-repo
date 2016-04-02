@@ -1,5 +1,3 @@
-import 'babel-core/polyfill';
-
 import fs from 'fs';
 
 import yargs from 'yargs';

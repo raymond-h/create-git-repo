@@ -1,4 +1,3 @@
-import 'babel-core/polyfill';
 import * as child_process from 'child_process';
 
 import Promise from 'bluebird';
